@@ -1,0 +1,127 @@
+{
+  "version": 1,
+  "author": "Smart Evacuation Manager",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-ntc-temperature-sensor",
+      "id": "ntcA",
+      "top": -150,
+      "left": -250,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-ntc-temperature-sensor",
+      "id": "ntcB",
+      "top": -150,
+      "left": -130,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-ntc-temperature-sensor",
+      "id": "ntcC",
+      "top": -150,
+      "left": -10,
+      "attrs": {}
+    },
+    { "type": "wokwi-gas-sensor", "id": "gasA", "top": 60, "left": -330, "attrs": {} },
+    { "type": "wokwi-gas-sensor", "id": "gasB", "top": 200, "left": -330, "attrs": {} },
+    { "type": "wokwi-gas-sensor", "id": "gasC", "top": 340, "left": -330, "attrs": {} },
+    {
+      "type": "wokwi-rgb-led",
+      "id": "ledA",
+      "top": 400,
+      "left": 100,
+      "attrs": { "common": "cathode" }
+    },
+    {
+      "type": "wokwi-rgb-led",
+      "id": "ledB",
+      "top": 400,
+      "left": 170,
+      "attrs": { "common": "cathode" }
+    },
+    {
+      "type": "wokwi-rgb-led",
+      "id": "ledC",
+      "top": 400,
+      "left": 240,
+      "attrs": { "common": "cathode" }
+    },
+    {
+      "type": "wokwi-rgb-led",
+      "id": "ledR",
+      "top": 400,
+      "left": 330,
+      "attrs": { "common": "cathode" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd",
+      "top": -156.8,
+      "left": 274.4,
+      "attrs": { "pins": "i2c" }
+    },
+    { "type": "wokwi-buzzer", "id": "bz", "top": 140, "left": 260, "attrs": { "volume": "0.1" } },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnStart",
+      "top": 220,
+      "left": 340,
+      "attrs": { "color": "blue" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnBug",
+      "top": 290,
+      "left": 340,
+      "attrs": { "color": "red" }
+    }
+  ],
+  "connections": [
+    [ "uno:TX", "$serialMonitor:RX", "", [] ],
+    [ "uno:RX", "$serialMonitor:TX", "", [] ],
+    [ "ntcA:VCC", "uno:5V", "red", [] ],
+    [ "ntcA:GND", "uno:GND.1", "black", [] ],
+    [ "ntcA:OUT", "uno:A0", "green", [] ],
+    [ "ntcB:VCC", "uno:5V", "red", [] ],
+    [ "ntcB:GND", "uno:GND.1", "black", [] ],
+    [ "ntcB:OUT", "uno:A1", "green", [] ],
+    [ "ntcC:VCC", "uno:5V", "red", [] ],
+    [ "ntcC:GND", "uno:GND.1", "black", [] ],
+    [ "ntcC:OUT", "uno:A2", "green", [] ],
+    [ "gasA:VCC", "uno:5V", "red", [] ],
+    [ "gasA:GND", "uno:GND.1", "black", [] ],
+    [ "gasA:AOUT", "uno:A3", "orange", [] ],
+    [ "gasB:VCC", "uno:5V", "red", [] ],
+    [ "gasB:GND", "uno:GND.1", "black", [] ],
+    [ "gasB:AOUT", "uno:A6", "orange", [] ],
+    [ "gasC:VCC", "uno:5V", "red", [] ],
+    [ "gasC:GND", "uno:GND.1", "black", [] ],
+    [ "gasC:AOUT", "uno:A7", "orange", [] ],
+    [ "ledA:R", "uno:2", "red", [] ],
+    [ "ledA:G", "uno:3", "green", [] ],
+    [ "ledA:COM", "uno:GND.2", "black", [] ],
+    [ "ledB:R", "uno:4", "red", [] ],
+    [ "ledB:G", "uno:5", "green", [] ],
+    [ "ledB:COM", "uno:GND.2", "black", [] ],
+    [ "ledC:R", "uno:6", "red", [] ],
+    [ "ledC:G", "uno:7", "green", [] ],
+    [ "ledC:COM", "uno:GND.2", "black", [] ],
+    [ "ledR:R", "uno:8", "red", [] ],
+    [ "ledR:G", "uno:9", "green", [] ],
+    [ "ledR:COM", "uno:GND.2", "black", [] ],
+    [ "lcd:VCC", "uno:5V", "red", [] ],
+    [ "lcd:GND", "uno:GND.2", "black", [] ],
+    [ "lcd:SDA", "uno:A4", "blue", [] ],
+    [ "lcd:SCL", "uno:A5", "purple", [] ],
+    [ "bz:1", "uno:GND.2", "black", [] ],
+    [ "bz:2", "uno:10", "gold", [] ],
+    [ "btnStart:1.l", "uno:11", "blue", [] ],
+    [ "btnStart:2.l", "uno:GND.2", "black", [] ],
+    [ "btnBug:1.l", "uno:12", "red", [] ],
+    [ "btnBug:2.l", "uno:GND.2", "black", [] ]
+  ],
+  "dependencies": {}
+}
